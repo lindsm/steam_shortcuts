@@ -4,11 +4,12 @@
 # for filename in os.listdir("C:\\temp"):
 #     print  filename
 
-import sys, os, shutil, datetime, time
+import sys, os, shutil, datetime, time, platform
 
 # The file we need to make backups of
 maxdirsize = 0
 maxfilesday = 0
+my_os = platform.system() + " " + platform.release()
 my_shortcuts = 'shortcuts.vdf'
 my_steam = "D:\games\steam\config\\"
 
@@ -16,7 +17,8 @@ settings_file = 'settings.conf'
 
 # Main Program
 # Copy the file, make backups, don't let things exceed a certain size or a certain filecount
-
+def startup():
+	"""What am I trying to accomplish here"""
 
 def maintenance():
 	"""Check the size of the directory and too many backups"""
@@ -33,5 +35,6 @@ def backup_shortcuts(shortcut_file):
 	shutil.copyfile(shortcut_file,  find_date() + 'shortcuts.vdf')
  
 
+print my_os
 
-backup_shortcuts(my_steam + my_shortcuts)
+#backup_shortcuts(my_steam + my_shortcuts)
